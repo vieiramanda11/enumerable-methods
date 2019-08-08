@@ -62,7 +62,7 @@ module Enumerable
     counter = 0
     self.my_each do |c|
       if block_given?
-        unless !yield(c)
+        unless !yield(c) 
           counter += 1 
         end
       else
