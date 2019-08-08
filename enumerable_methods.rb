@@ -63,7 +63,7 @@ module Enumerable
     self.my_each do |c|
       if block_given?
         unless !yield(c) 
-          counter += 1 
+        counter += 1 
         end
       else
         counter = self.length
