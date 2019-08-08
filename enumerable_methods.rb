@@ -36,6 +36,15 @@ module Enumerable
     array
   end
 
+  def my_all?
+    self.my_each do |a|
+      return true unless block_given?
+      return false unless yield(a)
+    end
+    true
+  end
+
+  
 end
 
 # tests
@@ -45,4 +54,6 @@ arr = [1, 2, 3, 4, 5]
 
 #arr.my_each_with_index {| i,j | puts i.to_s + " " + j.to_s }
 
-arr.my_select { |i| puts i % 2 == 0 }
+#arr.my_select { |i| puts i % 2 == 0 }
+
+arr.my_all? { |i| puts i > 0 }
