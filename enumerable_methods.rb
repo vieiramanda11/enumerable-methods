@@ -49,7 +49,14 @@ module Enumerable
     end
     false
   end
-  
+
+  def my_none?
+    self.my_each do |n|
+      return false unless !yield(n)
+    end
+    true
+  end
+
 end
 
 # tests
@@ -61,6 +68,8 @@ arr = [1, 2, 3, 4, 5]
 
 #arr.my_select { |i| puts i % 2 == 0 }
 
-#arr.my_all? { |i| puts i > 2 }
+#arr.my_all? { |i| puts i > 2 } # => false
 
-#arr.my_any? { |i| puts i < 0 }
+#arr.my_any? { |i| puts i < 0 } # => false
+
+#puts arr.my_none?{|a| a.nil? } => true
