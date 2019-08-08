@@ -90,6 +90,16 @@ module Enumerable
     result
   end
 
+  # my_inject method
+  def my_inject(begin = self[0])
+    result = begin
+    self.my_each do |i|
+      next if begin == i
+      result = yield(result, i)
+    end
+    result
+  end
+  
 end
 
 # tests
