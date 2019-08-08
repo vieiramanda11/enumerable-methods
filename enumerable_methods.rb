@@ -38,12 +38,17 @@ module Enumerable
 
   def my_all?
     self.my_each do |a|
-      return true unless block_given?
       return false unless yield(a)
     end
     true
   end
 
+  def my_any?
+    self.my_each do |a|
+      return true unless yield(a)
+    end
+    false
+  end
   
 end
 
@@ -56,4 +61,6 @@ arr = [1, 2, 3, 4, 5]
 
 #arr.my_select { |i| puts i % 2 == 0 }
 
-arr.my_all? { |i| puts i > 0 }
+#arr.my_all? { |i| puts i > 2 }
+
+#arr.my_any? { |i| puts i < 0 }
