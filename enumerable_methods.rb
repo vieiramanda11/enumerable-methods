@@ -101,7 +101,7 @@ end
 
 # multiply method
 def multiply_els(par)
-  module Enumerable
+  include Enumerable
   par.my_inject { |a, b| a * b }
 end
 
