@@ -66,7 +66,7 @@ module Enumerable
     res = self
     counter = 0
     res.my_each do |c|
-      if block_given? && yield(c) 
+      if block_given? && yield(c)
         counter += 1
       else
         counter = res.length
@@ -93,7 +93,8 @@ module Enumerable
   # my_inject method
   def my_inject(init = self[0])
     result = init
-    self.my_each do |i|
+    res = self
+    res.my_each do |i|
       next if init == i
 
       result = yield(result, i)
@@ -104,8 +105,7 @@ end
 
 # multiply method
 def multiply_els(par)
-  include Enumerable
-  par.my_inject { |a, b| a * b }
+  par.my_inject(1) { |a, b| a * b }
 end
 
 # tests
