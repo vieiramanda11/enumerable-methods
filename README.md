@@ -14,5 +14,5 @@ Implementation of the following enumerable methods present in Ruby:
 # Live Version
 Check it on [Repl.it](https://repl.it/@vieiramanda11/enumerable-methods)
 
-# Author:
+# Author
 [Amanda Vieira](https://github.com/vieiramanda11/)
