@@ -4,12 +4,13 @@
 module Enumerable
   # my_each method
   def my_each
+    res = self
     i = 0
-    while i < self.length
-      yield(self[i])
+    while i < res.length
+      yield(res[i])
       i += 1
     end
-    self
+    res
   end
 
   # my_each_with_index method
