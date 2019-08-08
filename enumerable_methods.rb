@@ -115,7 +115,7 @@ arr = [1, 2, 3, 4, 5]
 
 #arr.my_each_with_index {| i,j | puts i.to_s + " " + j.to_s }
 
-arr.my_select { |i| puts i % 2 == 0 }
+#arr.my_select { |i| puts i % 2 == 0 }
 
 #arr.my_all? { |i| puts i > 2 } # => false
 
