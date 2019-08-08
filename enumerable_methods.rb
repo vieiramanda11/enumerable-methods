@@ -91,16 +91,22 @@ module Enumerable
   end
 
   # my_inject method
-  def my_inject(begin = self[0])
-    result = begin
+  def my_inject(init = self[0])
+    result = init
     self.my_each do |i|
-      next if begin == i
+      next if init == i
       result = yield(result, i)
     end
     result
   end
-  
+
 end
+
+  # multiply method
+  def multiply_els(par)
+    include Enumerable
+    par.my_inject {|a, b| a * b }
+  end
 
 # tests
 arr = [1, 2, 3, 4, 5]
@@ -120,3 +126,5 @@ arr = [1, 2, 3, 4, 5]
 #puts arr.my_count # => 5
 
 #puts arr.my_map { |i| i * 2} # => [2, 4, 6, 8, 10]
+
+puts multiply_els([2,4,5])
