@@ -75,6 +75,21 @@ module Enumerable
     counter
   end
 
+  #my_map method
+  def my_map(proc = nil)
+    result = Array.new
+    if proc
+      my_each do |p|
+        result << proc.call(p)
+      end
+    else
+      my_each do |a|
+        result << yield(a)
+      end
+    end
+    result
+  end
+
 end
 
 # tests
@@ -93,3 +108,5 @@ arr = [1, 2, 3, 4, 5]
 #puts arr.my_none?{|a| a.nil? } # => true
 
 #puts arr.my_count # => 5
+
+#puts arr.my_map { |i| i * 2} # => [2, 4, 6, 8, 10]
