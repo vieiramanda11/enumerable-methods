@@ -36,6 +36,7 @@ module Enumerable
     array
   end
 
+  # my_all? method
   def my_all?
     self.my_each do |a|
       return false unless yield(a)
@@ -43,6 +44,7 @@ module Enumerable
     true
   end
 
+  #my_any? method
   def my_any?
     self.my_each do |a|
       return true unless yield(a)
@@ -50,11 +52,27 @@ module Enumerable
     false
   end
 
+  #my_none? method
   def my_none?
     self.my_each do |n|
       return false unless !yield(n)
     end
     true
+  end
+
+  #my_count method
+  def my_count
+    counter = 0
+    self.my_each do |c|
+      if block_given?
+        if yield(c)
+          counter += 1 
+        end
+      else
+        counter = self.length
+      end
+    end
+    counter
   end
 
 end
@@ -72,4 +90,6 @@ arr = [1, 2, 3, 4, 5]
 
 #arr.my_any? { |i| puts i < 0 } # => false
 
-#puts arr.my_none?{|a| a.nil? } => true
+#puts arr.my_none?{|a| a.nil? } # => true
+
+#puts arr.my_count # => 5
