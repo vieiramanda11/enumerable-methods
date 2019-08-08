@@ -26,9 +26,7 @@ module Enumerable
   def my_select
     array = []
     self.my_each do |s|
-      unless !yield(s)
-        array.push(s)
-      end
+      array.push(s) if yield(s)
     end
     array
   end
@@ -61,10 +59,8 @@ module Enumerable
   def my_count
     counter = 0
     self.my_each do |c|
-      if block_given?
-        unless !yield(c) 
-        counter += 1 
-        end
+      if block_given? && yield(c) 
+        counter += 1
       else
         counter = self.length
       end
@@ -106,7 +102,7 @@ def multiply_els(par)
 end
 
 # tests
-# arr = [1, 2, 3, 4, 5]
+ arr = [1, 2, 3, 4, 5]
 
 # arr.my_each { |x| puts x * 2 }
 
