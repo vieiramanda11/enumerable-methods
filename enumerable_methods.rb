@@ -15,18 +15,20 @@ module Enumerable
 
   # my_each_with_index method
   def my_each_with_index
+    res = self
     i = 0
-    while i < self.length
-      yield(self[i], i)
+    while i < res.length
+      yield(res[i], i)
       i += 1
     end
-    self
+    res
   end
 
   # my_select method
   def my_select
+    res = self
     array = []
-    self.my_each do |s|
+    res.my_each do |s|
       array.push(s) if yield(s)
     end
     array
@@ -34,7 +36,8 @@ module Enumerable
 
   # my_all? method
   def my_all?
-    self.my_each do |a|
+    res = self
+    res.my_each do |a|
       return false unless yield(a)
     end
     true
@@ -42,7 +45,8 @@ module Enumerable
 
   # my_any? method
   def my_any?
-    self.my_each do |a|
+    res = self
+    res.my_each do |a|
       return true unless yield(a)
     end
     false
@@ -50,7 +54,8 @@ module Enumerable
 
   # my_none? method
   def my_none?
-    self.my_each do |n|
+    res = self
+    res.my_each do |n|
       return false if yield(n)
     end
     true
@@ -58,12 +63,13 @@ module Enumerable
 
   # my_count method
   def my_count
+    res = self
     counter = 0
-    self.my_each do |c|
+    res.my_each do |c|
       if block_given? && yield(c) 
         counter += 1
       else
-        counter = self.length
+        counter = res.length
       end
     end
     counter
@@ -103,7 +109,7 @@ def multiply_els(par)
 end
 
 # tests
- arr = [1, 2, 3, 4, 5]
+# arr = [1, 2, 3, 4, 5]
 
 # arr.my_each { |x| puts x * 2 }
 
