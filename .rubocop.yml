@@ -4,7 +4,8 @@ Metrics/LineLength:
 
 # Too short methods lead to extraction of single-use methods, which can make
 # the code easier to read (by naming things), but can also clutter the class
-Metrics/MethodLength: 
+Metrics/MethodLength:
+  Include: ["app/controllers/*"]
   Max: 20
 
 Metrics/BlockLength:
